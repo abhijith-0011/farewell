@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ml">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="A heartfelt farewell note from a student to a beloved teacher." />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <title>Farewell — A Note to Miss 🌸</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- My Style -->
+    <link rel="stylesheet" href="./style/main.css" />
+</head>
+
+<body>
+
+    <!-- ═══════════════ BACKGROUND MUSIC ═══════════════ -->
+    <audio id="bgMusic" loop src="music/Thaniye.mp3"></audio>
+
+    <!-- ═══════════════ FLOATING PETALS BACKGROUND ═══════════════ -->
+    <div class="petals-bg" id="petalsBg"></div>
+
+    <!-- ═══════════════ PASSWORD SCREEN ═══════════════ -->
+    <div class="screen active" id="screen-password">
+        <div class="password-card glass-card">
+            <div class="lock-icon">🔒</div>
+            <h1 class="password-title">A Letter for Miss</h1>
+            <p class="password-subtitle">This is something personal &amp; heartfelt.<br>Please enter the password to continue.</p>
+
+            <div class="input-group" id="noteInputGroup">
+                <label for="noteInput" class="input-label">Leave a note here (optional)</label>
+                <textarea id="noteInput" class="note-textarea" placeholder="Write something for Miss here..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="passwordInput" class="input-label">Password</label>
+                <div class="password-field">
+                    <input type="password" id="passwordInput" class="password-input" placeholder="• • •" maxlength="10" autocomplete="off" />
+                    <button class="eye-btn" id="eyeBtn" onclick="togglePasswordVisibility()" title="Show/Hide">👁</button>
+                </div>
+            </div>
+
+            <button class="unlock-btn" id="unlockBtn" onclick="checkPassword()">
+                <span>Open the Letter</span>
+                <span class="btn-icon">✉️</span>
+            </button>
+            <div class="error-msg" id="errorMsg">Wrong password. Try again 🔐</div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ NOTE PAGES ═══════════════ -->
+
+    <!-- Page 1 — bg: img1, card-photo: img2 -->
+    <div class="screen" id="screen-1" style="background-image: url('img/img1.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ഒരു കത്ത്</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img2.jpeg" alt="" />
+                <p class="letter-text opening-text">
+                    ഞാൻ മിസ്സിനെ കണ്ടിട്ട് 4 വർഷമായെങ്കിലും, എല്ലാം ഇന്നലെ നടന്നതുപോലെ ഞാൻ ഓർക്കുന്നു. അഡ്മിഷൻ എടുത്ത് വീട്ടിൽ ഇരുന്ന ഒരു ദിവസം, മിസ് എന്നെ വിളിച്ചതും, ക്ലാസ് ഒക്ടോബർ 24ന് തുടങ്ങുമെന്ന് ഇൻവൈറ്റ് ചെയ്തതും, ഭക്ഷണം വെജ് വേണോ നോൺ വെജ് വേണോ എന്ന് ചോദിച്ചതും എല്ലാം ഇന്നലെ പോലെ തന്നെ ഞാൻ ഓർക്കുന്നു.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 2 — bg: img2, card-photo: img3 -->
+    <div class="screen" id="screen-2" style="background-image: url('img/img2.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ആദ്യം</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img3.jpeg" alt="" />
+                <p class="letter-text">
+                    അത് കഴിഞ്ഞ്, അന്നത്തെ പരിപാടികൾ ഒക്കെ കഴിഞ്ഞപ്പോൾ ക്ലാസിൽ വെച്ച് മിസ്സിനെ കണ്ടതും ഇന്നും ഓർമ്മയുണ്ട്. അന്ന് മിസ്സിനെ കണ്ടപ്പോൾ വളരെ പാവമാണെന്ന് തോന്നി. പിന്നീട് ക്ലാസ് തുടങ്ങിയപ്പോൾ എനിക്ക് ക്ലാസ് ഒട്ടും ഇഷ്ടമായിരുന്നില്ല.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 3 — bg: img3, card-photo: img4 -->
+    <div class="screen" id="screen-3" style="background-image: url('img/img3.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">സ്റ്റാഫ് റൂം</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img4.jpeg" alt="" />
+                <p class="letter-text">
+                    ഒരു ദിവസം ഞാൻയും Anirudh ചേർന്ന് സ്റ്റാഫ് റൂമിൽ റെക്കോർഡ് എടുക്കാൻ പോയപ്പോൾ, മിസ് എന്നെ ആദ്യമായി വഴക്കുപറഞ്ഞു — അതും ഒരു കാരണവുമില്ലാതെ. അതിന് ശേഷം എനിക്ക് മിസ്സിനെ ഇഷ്ടമല്ലായിരുന്നു.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 4 — bg: img4, card-photo: img5 -->
+    <div class="screen" id="screen-4" style="background-image: url('img/img4.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ആ മെയിൽ</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img5.jpeg" alt="" />
+                <p class="letter-text">
+                    അങ്ങനെ കുറച്ച് ദിവസങ്ങൾ കഴിഞ്ഞ്, ഒരു ദിവസം ലാബിൽ വെച്ച് മെയിലിൽ signature ചേർക്കാൻ പഠിപ്പിച്ചിട്ട് എല്ലാവരോടും മിസ്സിന് ഒരു മെയിൽ അയക്കാൻ പറഞ്ഞല്ലോ. അന്ന് ഞാൻ "class is so boring" എന്ന് മെയിൽ അയച്ചു. അന്ന് എനിക്ക് ക്ലാസ് ഒട്ടും ഇഷ്ടമായിരുന്നില്ല.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 5 — bg: img5, card-photo: img6 -->
+    <div class="screen" id="screen-5" style="background-image: url('img/img5.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ആ കോൾ</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img6.jpeg" alt="" />
+                <p class="letter-text">
+                    അതിനു രണ്ട് ദിവസം കഴിഞ്ഞപ്പോൾ മിസ് എന്നെ വിളിച്ചു, എനിക്ക് എന്താണ് പ്രശ്നം, ക്ലാസ് എന്തുകൊണ്ട് ഇഷ്ടമല്ല എന്നൊക്കെ ചോദിച്ചു. അപ്പോൾ ഞാൻ എന്റെ വിഷമം എല്ലാം മിസ്സിനോട് പറഞ്ഞു — സിവിൽ എടുക്കാൻ ആഗ്രഹിച്ചിരുന്ന ഞാൻ AI &amp; DS എടുത്തതും എല്ലാം. ആ സമയത്ത് വീട്ടിൽ ഞാൻ പറയുന്ന കാര്യം ആരും മനസ്സിലാക്കുന്നില്ലായിരുന്നു. ആശ്വസിപ്പിക്കാൻ ആരും ഉണ്ടായിരുന്നില്ല.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 6 — bg: img6, card-photo: img7 -->
+    <div class="screen" id="screen-6" style="background-image: url('img/img6.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ആശ്വാസം</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img7.jpeg" alt="" />
+                <p class="letter-text">
+                    അന്ന് മിസ് എന്നെ വിളിച്ച് അങ്ങനെ സംസാരിച്ചപ്പോൾ എനിക്ക് വലിയൊരു ആശ്വാസം തോന്നി. ശരിക്കും മിസ്സിനെ അമ്മയെ പോലെ തോന്നി. അതിന് ശേഷം മിസ്സിനെ വളരെ ഇഷ്ടമായി.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 7 — bg: img7, card-photo: img8 -->
+    <div class="screen" id="screen-7" style="background-image: url('img/img7.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">S Grade</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img8.jpeg" alt="" />
+                <p class="letter-text">
+                    പിന്നീട് മിസ് പഠിപ്പിച്ച സബ്ജക്ട് ആയതിനാൽ ഞാൻ C Programming നല്ല പോലെ പഠിച്ചു, അതിൽ S grade മേടിച്ചു. മിസ് പഠിപ്പിച്ചതുകൊണ്ടാണ് എനിക്ക് coding ഒക്കെ കുറച്ചെങ്കിലും പഠിക്കാൻ കഴിഞ്ഞത്. ഇപ്പോൾ ക്ലാസ് ഒക്കെ കഴിഞ്ഞ് പോകുമ്പോൾ, കോളേജിൽ ഞാൻ മിസ് ചെയ്യാൻ പോകുന്ന കുറച്ച് ആളുകളിൽ മിസ്സും ഉണ്ടാകും. മിസ്സിന്റെ ക്ലാസ് ഒക്കെ വളരെ അടിപൊളിയായിരുന്നു.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 8 — bg: img8, card-photo: img9 -->
+    <div class="screen" id="screen-8" style="background-image: url('img/img8.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ആഗ്രഹം</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img9.jpeg" alt="" />
+                <p class="letter-text">
+                    എനിക്ക് ചിലപ്പോൾ തോന്നാറുണ്ട് — എൻ്റെ വീട് മിസ്സിൻ്റെ വീടിൻ്റെ അടുത്തായിരുന്നെങ്കിൽ മിസ്സ്‌നെ എല്ലാ ദിവസവും കാണായിരുന്നു. രാവിലെ മിസ്സിന്റെ വീടിൻ്റെ വഴി വരുമ്പോൾ ഓരോ ദിവസവും മിസ് അവിടെ ഉണ്ടോ എന്ന് നോക്കാറുണ്ട്.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 9 — bg: img9, card-photo: img10 -->
+    <div class="screen" id="screen-9" style="background-image: url('img/img9.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ശ്രദ്ധ</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img10.jpeg" alt="" />
+                <p class="letter-text">
+                    മിസ് ക്ലാസിൽ വന്ന് പറയുന്ന ഓരോ കാര്യവും ഞാൻ ശ്രദ്ധിച്ച് കേൾക്കാറുണ്ട്. കഴിയുന്നത്ര അനുസരിക്കാനും ശ്രമിക്കാറുണ്ട്. മിസ് എന്നോട് എന്തെങ്കിലും ചെയ്ത് തരുവൊന്ന് ചോദിച്ച് വരുന്നത് എനിക്ക് വളരെ ഇഷ്ടമായിരുന്നു. അതൊക്കെ എനിക്ക് കഴിയുന്നത്ര നന്നായി ചെയ്യാൻ ഞാൻ ശ്രമിക്കാറുണ്ട്.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 10 — bg: img10, card-photo: img1 -->
+    <div class="screen" id="screen-10" style="background-image: url('img/img10.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">റിപ്പോർട്ട്</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img1.jpeg" alt="" />
+                <p class="letter-text">
+                    കഴിഞ്ഞ സെമസ്റ്ററിൽ ലാസ്റ്റ് റിപ്പോർട്ട് വെക്കാൻ വൈകിയതുകൊണ്ട് മിസ് എന്നെ വിളിച്ചല്ലോ. അന്ന് ഞാൻ മിസ് വെറും വിശേഷം ചോദിക്കാൻ വിളിക്കുന്നതാണെന്ന് കരുതി ഫോൺ എടുത്തപ്പോൾ, മിസ് വിളിച്ച് ദേഷ്യപ്പെട്ടപ്പോൾ എനിക്ക് വളരെ വിഷമമായി 😥.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 11 — bg: img1, card-photo: img2 -->
+    <div class="screen" id="screen-11" style="background-image: url('img/img1.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">സഹായം</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img2.jpeg" alt="" />
+                <p class="letter-text">
+                    പിന്നെ മിസ് എനിക്ക് പല സഹായങ്ങളും ചെയ്ത് തന്നിട്ടുണ്ട്. എക്സിബിഷൻന് 'Homework Writing Machine' ഉണ്ടാക്കിയപ്പോൾ, മിസ് സീനിയേഴ്സിനെയും jekson സാറിനെയും വിളിച്ച് ഏറെ സഹായിച്ചു. അത് പോലെ തന്നെ പ്രോജക്റ്റ് മാറ്റുന്നതിനും മിസ് വളരെ സഹായിച്ചു.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 12 — bg: img3, card-photo: img4 -->
+    <div class="screen" id="screen-12" style="background-image: url('img/img3.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">കാർത്തിക</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img4.jpeg" alt="" />
+                <p class="letter-text">
+                    പിന്നെ മിസ്സിനെ കുറിച്ച് പറയാനാണെങ്കിൽ ഏറെ കാര്യങ്ങൾ ഉണ്ട്. കാർത്തികയുടെ കാര്യം ഞാൻ ആദ്യം വന്ന് പറഞ്ഞതും മിസ്സിനോടാണ്. ശരിക്കും ആദ്യം തന്നെ മിസ്സിനോട് പറയണമെന്ന് ഞാൻ വിചാരിച്ചിരുന്നു, പക്ഷേ അവൾ സമ്മതിച്ചില്ല.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 13 — bg: img5, card-photo: img6 -->
+    <div class="screen" id="screen-13" style="background-image: url('img/img5.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ഗിഫ്റ്റ്</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img6.jpeg" alt="" />
+                <p class="letter-text">
+                    ഞാൻ ചിലപ്പോൾ ചിന്തിക്കാറുണ്ട് — ഞാൻ  നല്ല നിലയിൽ എത്തുമ്പോ മിസ്സിന് എന്തെങ്കിലും ഒരു ഗിഫ്റ്റ് വാങ്ങി കൊടുക്കണം എന്ന്. പണം കിട്ടുമ്പോൾ തീർച്ചയായും വാങ്ങി തരാം.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 14 — bg: img7, card-photo: img8 -->
+    <div class="screen" id="screen-14" style="background-image: url('img/img7.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">ഫെയർവെൽ</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img8.jpeg" alt="" />
+                <p class="letter-text">
+                    പിന്നെ എന്തൊക്കെയോ പറയാൻ ഇനിയും വളരെ കാര്യങ്ങൾ ഉണ്ട്. ഇപ്പോൾ പെട്ടെന്ന് ഓർമ്മ വന്നതൊക്കെയാണ് ഞാൻ പറഞ്ഞത്. എങ്ങനെയായാലും മിസ്സിനെ ഞാൻ ഒരിക്കലും മറക്കില്ല. ഞാൻ ഇങ്ങനെ വികാരങ്ങൾ പുറത്തേക്ക് പ്രകടിപ്പിക്കാറില്ല. ഫെയർവെല്ലിൽ മിസ് മൈൻഡ് ചെയ്തില്ലെങ്കിലും, മിസ്സിനെ കുറിച്ച് ഒന്നും പറഞ്ഞില്ലെങ്കിലും, അത് മിസ്സിനെ ഇഷ്ടമില്ലാത്തതിനാലല്ല. ശരിക്കും മിസ്സിനെ വളരെ ഇഷ്ടമാണ്. കോളേജിൽ നിന്ന് കിട്ടിയ ഏറ്റവും വിലപ്പെട്ട ഗിഫ്റ്റുകളിൽ ഒന്നാണ് മിസ്.
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- Page 15 — bg: img9, card-photo: img10 -->
+    <div class="screen" id="screen-15" style="background-image: url('img/img9.jpeg');">
+        <div class="page-content">
+            <div class="page-header"><span class="page-tag">Last Page</span></div>
+            <div class="letter-card glass-card page-card">
+                <img class="card-photo" src="img/img10.jpeg" alt="" />
+                <p class="letter-text">
+                    ഈ ലെറ്റർ വളരെ സിമ്പിൾ ആയിട്ട്  എഴുതാൻ പറ്റുവായിരുന്നു, പക്ഷേ ഇങ്ങനെ എഴുതിയാൽ മിസ് എന്നെ ഓർത്തിരിക്കാനുള്ള സാധ്യത കൂടുതലാണെന്ന് തോന്നി. മിസ് എന്നെ ഒരിക്കലും മറക്കാതിരിക്കും അല്ലേ 🥺.
+                </p>
+                <p class="letter-text" style="margin-top: 1.2rem;">
+                    മിസ്സിന് എന്തെങ്കിലും ആവശ്യം വന്നാൽ എപ്പോഴും എന്നെ വിളിക്കണം. എനിക്ക് കഴിയുന്നപോലെ ഞാൻ  സഹായിക്കും. ആദ്യമായിട്ടായിരിക്കും ഞാൻ മിസ്സിനോട് ഇത്രയും തുറന്ന് സംസാരിക്കുന്നത്. ഇങ്ങനെ സംസാരിക്കണം എന്ന് എപ്പോഴും തോന്നാറുണ്ട്, പക്ഷേ എന്തോ പറയാൻ കഴിയാറില്ല.
+                </p>
+                <p class="letter-text" style="margin-top: 1.2rem;">
+                    പിന്നെ മിസ് ഇടയ്ക്കിടെ വിളിക്കണം.
+                </p>
+                <p class="letter-text thank-you-line" style="margin-top: 1.5rem;">
+                    Thank you miss ❤️. thank you for everything
+                </p>
+            </div>
+            <div class="click-hint">Click anywhere to continue →</div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ HUG SCREEN ═══════════════ -->
+    <div class="screen" id="screen-hug" style="background-image: url('img/img10.jpeg');">
+        <div class="hug-content">
+            <div class="hug-card glass-card">
+                <img class="hug-card-photo" src="img/img5.jpeg" alt="" />
+                <div class="hug-emoji">🌸</div>
+                <h2 class="hug-title">The End 🥺</h2>
+                <p class="hug-subtitle">
+                    "കോളേജിൽ നിന്ന് കിട്ടിയ ഏറ്റവും വിലപ്പെട്ട ഗിഫ്റ്റുകളിൽ ഒന്നാണ് മിസ്."
+                </p>
+                <div class="hug-note">
+                    <p>Miss, if this note touched your heart even a little,<br>please press the button below. 🤍</p>
+                </div>
+                <button class="hug-btn" id="hugBtn" onclick="sendHug()">
+                    <span class="hug-btn-emoji">🫂</span>
+                    <span>Hug</span>
+                </button>
+                <div class="hug-status" id="hugStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ NAVIGATION BAR ═══════════════ -->
+    <nav class="nav-bar" id="navBar">
+        <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" title="Previous">← Back</button>
+        <span class="page-indicator" id="pageIndicator">1 / 15</span>
+        <button class="nav-btn nav-btn-next" id="nextBtn" onclick="navigate(1)" title="Next">Next →</button>
+    </nav>
+
+    <!-- Greensock -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- Main Script -->
+    <script type="application/javascript" src="./script/main.js"></script>
+
+</body>
+</html>
