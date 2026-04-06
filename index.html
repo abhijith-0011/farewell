@@ -33,9 +33,9 @@
             <h1 class="password-title">A Letter for Miss</h1>
             <p class="password-subtitle">This is something personal &amp; heartfelt.<br>Please enter the password to continue.</p>
 
-            <div class="input-group" id="noteInputGroup">
-                <label for="noteInput" class="input-label">A Small Note...</label>
-                <textarea id="noteInput" class="note-textarea" placeholder="Write something...">എനിക്ക് മിസ്സിനോട് പറയാൻ ഉള്ളതിൻ്റെ ഒരു 10% ഇതിൽ ഉണ്ട്. ബാക്കി പറയാൻ എനിക്ക് അറിയില്ല.</textarea>
+            <div class="input-group">
+                <label class="input-label">A Small Note...</label>
+                <div class="note-textarea" style="overflow-y: auto; cursor: default; user-select: none;">എനിക്ക് മിസ്സിനോട് പറയാൻ ഉള്ളതിൻ്റെ ഒരു 10% ഇതിൽ ഉണ്ട്. ബാക്കി പറയാൻ എനിക്ക് അറിയില്ല.</div>
             </div>
 
             <div class="input-group">
@@ -286,7 +286,11 @@
                     "കോളേജിൽ നിന്ന് കിട്ടിയ ഏറ്റവും വിലപ്പെട്ട ഗിഫ്റ്റുകളിൽ ഒന്നാണ് മിസ്."
                 </p>
                 <div class="hug-note">
-                    <p>Miss, if this note touched your heart even a little,<br>please press the button below. 🤍</p>
+                    <p>Miss, if this note touched your heart even a little,<br>please leave a reply here and press the button below. 🤍</p>
+                </div>
+                
+                <div class="input-group" style="margin-top: 0.2rem; width: 100%;">
+                    <textarea id="noteInput" class="note-textarea" placeholder="Write your reply to Abhijith here..." style="background: rgba(255,255,255,0.6); min-height: 100px;"></textarea>
                 </div>
                 <button class="hug-btn" id="hugBtn" onclick="sendHug()">
                     <span class="hug-btn-emoji">🫂</span>
