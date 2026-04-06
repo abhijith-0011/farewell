@@ -244,11 +244,15 @@ function spawnPetals() {
 // ─── KEYBOARD NAVIGATION ──────────────────────────────────────
 document.addEventListener('keydown', (e) => {
     if (currentPageIdx < 0) return; // on password screen
+    
+    // Do not interfere if the user is typing in an input or textarea
+    const tagName = e.target.tagName.toLowerCase();
+    if (tagName === 'input' || tagName === 'textarea') return;
+
     if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
         navigate(1);
     } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
-        if (e.key === 'Backspace' && e.target.tagName === 'INPUT') return;
         e.preventDefault();
         navigate(-1);
     }
